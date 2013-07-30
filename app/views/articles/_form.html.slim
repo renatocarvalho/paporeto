@@ -4,6 +4,7 @@
   .form-inputs
     = f.input :title
     = f.association :category, prompt: 'Escolha uma categoria'
+    = f.uploader :picture, preview: :regular
     = f.input :summary
     = f.input :body, input_html: {class: 'input-xxlarge', rows: 10}
 

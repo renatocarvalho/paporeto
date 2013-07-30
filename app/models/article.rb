@@ -7,4 +7,6 @@ class Article < ActiveRecord::Base
     "#{id} #{title}".parameterize
   end
 
+  uploads_one :picture, regular: [600,300], thumb: [200,200]
+
 end

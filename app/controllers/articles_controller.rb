@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
+    @article.attach_picture(params[:picture_id])
     respond_to do |format|
       if @article.save
         format.html { redirect_to articles_path, notice: 'Artigo criado com sucesso!' }
@@ -41,6 +41,8 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
+      @article.attach_picture(params[:picture_id])
+
       if @article.update(article_params)
         format.html { redirect_to articles_path, notice: 'Artigo atualizado com sucesso!' }
         format.json { head :no_content }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130730010354) do
+ActiveRecord::Schema.define(version: 20130730014511) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -27,5 +27,19 @@ ActiveRecord::Schema.define(version: 20130730010354) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "images", force: true do |t|
+    t.string   "file"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.integer  "width"
+    t.integer  "height"
+    t.boolean  "retina",         default: false
+    t.string   "upload_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"
 
 end

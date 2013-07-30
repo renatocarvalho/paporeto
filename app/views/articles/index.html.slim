@@ -9,6 +9,8 @@
         h4.list-group-item-heading = article.title
         p.list-group-item-text = article.summary
         p.list-group-item-text = article.category.try :name
+        p.list-group-item-text
+          = img article.picture.regular if article.picture?
         .btn-group
           = link_to 'Ver', article, class: 'btn btn-default btn-small'
           = link_to 'Editar', edit_article_path(article), class: 'btn btn-default btn-small'
