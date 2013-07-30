@@ -209,6 +209,8 @@ pt-BR:
   activerecord:
     models:
       user: Usuário
+      article: Artigo
+      category: Categoria
     attributes:
       user:
         name: Nome
@@ -218,6 +220,8 @@ pt-BR:
 
   helpers:
     submit:
+      create: 'Criar %{model}'
+      update: 'Editar %{model}'
       user:
         create: 'Novo %{model}'
         update: 'Salvar'
