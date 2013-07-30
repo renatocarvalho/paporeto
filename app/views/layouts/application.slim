@@ -1,4 +1,4 @@
-doctype
+doctype html
 html
   head
     title Paporeto
@@ -6,11 +6,15 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+
     .navbar.navbar-inverse.navbar-static-top
       .container
-        a class="navbar-brand" href="#" Paporeto
+        = link_to 'Paporeto', root_path, class: 'navbar-brand'
         ul.nav.navbar-nav
-          li = link_to 'Artigos', articles_path
-          li = link_to 'Categorias', categories_path
+          li class="#{'active' if params[:controller] == 'articles'}"
+            = link_to 'Artigos', articles_path
+          li class="#{'active' if params[:controller] == 'categories'}"
+            = link_to 'Categorias', categories_path
+
     .container
       = yield
