@@ -17,4 +17,8 @@ html
             = link_to 'Categorias', categories_path
 
     .container
+      - if notice
+        .alert
+          button.close data-dismiss="alert" type="button"
+          = notice
       = yield

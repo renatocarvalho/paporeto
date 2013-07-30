@@ -1,13 +1,14 @@
 .panel
   .panel-heading
     h3 class="panel-title" Artigos
-  = link_to 'Novo artigo', new_article_path, class: 'btn btn-primary pull-right'
+  = link_to 'Novo artigo', new_article_path, class: 'btn btn-primary'
 
   .list-group
     - @articles.each do |article|
       .list-group-item
         h4.list-group-item-heading = article.title
         p.list-group-item-text = article.summary
+        p.list-group-item-text = article.category.try :name
         .btn-group
           = link_to 'Ver', article, class: 'btn btn-default btn-small'
           = link_to 'Editar', edit_article_path(article), class: 'btn btn-default btn-small'

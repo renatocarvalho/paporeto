@@ -1,10 +1,6 @@
-- if notice
-  .alert
-    button.close data-dismiss="alert" type="button"
-    = notice
-
 = link_to 'Editar', edit_article_path(@article), class: 'btn btn-primary'
 h1 = @article.title
 p = @article.summary
+p = @article.category.try :name
 hr
 = simple_format @article.body
