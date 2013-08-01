@@ -1,19 +1,11 @@
-h1 Listing categories
+h1 Categorias
 
-table
-  tr
-    th Name
-    th
-    th
-    th
+= link_to 'Adicionar categoria', new_category_path, class: 'btn btn-primary'
 
+.list-group
   - @categories.each do |category|
-    tr
-      td = category.name
-      td = link_to 'Show', category
-      td = link_to 'Edit', edit_category_path(category)
-      td = link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Category', new_category_path
+    .list-group-item
+      h4.list-group-item-heading = category.name
+      p.list-group-item-text = link_to 'Ver', category
+      p.list-group-item-text = link_to 'Editar', edit_category_path(category)
+      p.list-group-item-text = link_to 'Excluir', category, :confirm => 'Are you sure?', :method => :delete

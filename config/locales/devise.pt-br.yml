@@ -20,8 +20,10 @@ pt-BR:
       invalid_token: 'Token de autenticação inválido.'
       timeout: 'A sua sessão expirou, por favor faça login novamente para continuar.'
       inactive: 'A sua conta não foi ativada ainda.'
+      user:
+        not_found_in_database: 'Senha ou email inválido.'
     sessions:
-      signed_in: 'Autenticado com sucesso.'
+      signed_in: 'Olá %{current_user.username}! Autenticado com sucesso.'
       signed_out: 'Logout feito com sucesso.'
     passwords:
       send_instructions: 'Você receberá um e-mail com instruções sobre como reinicializar sua senha em poucos minutos.'

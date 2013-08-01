@@ -10,15 +10,25 @@ html
     .navbar.navbar-inverse.navbar-static-top
       .container
         = link_to 'Paporeto', root_path, class: 'navbar-brand'
-        ul.nav.navbar-nav
-          li class="#{'active' if params[:controller] == 'articles'}"
-            = link_to 'Artigos', articles_path
-          li class="#{'active' if params[:controller] == 'categories'}"
-            = link_to 'Categorias', categories_path
+        - if current_user
+          ul.nav.navbar-nav
+            li class="#{'active' if params[:controller] == 'articles'}"
+              = link_to 'Artigos', articles_path
+            li class="#{'active' if params[:controller] == 'categories'}"
+              = link_to 'Categorias', categories_path
+            li class="#{'active' if params[:controller] == 'users'}"
+              = link_to 'Usuários', users_path
+          ul.nav.navbar-nav.pull-right
+            li = link_to current_user.email, '#'
+            li = link_to 'Sair', destroy_user_session_path, method: :delete
 
     .container
       - if notice
         .alert
-          button.close data-dismiss="alert" type="button"
+          button.close data-dismiss="alert" type="button" &times;
           = notice
+      - if alert
+        .alert.alert-error
+          button.close data-dismiss="alert" type="button" &times;
+          = alert
       = yield

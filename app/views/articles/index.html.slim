@@ -1,7 +1,7 @@
 .panel
   .panel-heading
     h3 class="panel-title" Artigos
-  = link_to 'Novo artigo', new_article_path, class: 'btn btn-primary'
+  = link_to 'Adicionar artigo', new_article_path, class: 'btn btn-primary'
 
   .list-group
     - @articles.each do |article|
