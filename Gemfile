@@ -24,6 +24,9 @@ gem 'bootstrap-kaminari-views', '~> 0.0.2'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+
+  # Gera conteúdo temporário no server
+  gem 'ffaker', '~> 1.16.2'
 end
 
 group :development do
