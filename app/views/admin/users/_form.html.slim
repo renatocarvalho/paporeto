@@ -1,4 +1,4 @@
-= simple_form_for(@user) do |f|
+= simple_form_for([:admin, @user]) do |f|
   = f.error_notification
 
   .form-inputs
@@ -9,3 +9,4 @@
 
   .form-actions
     = f.button :submit
+    = link_to 'Back', admin_users_path

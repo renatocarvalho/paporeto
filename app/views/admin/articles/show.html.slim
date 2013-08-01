@@ -1,4 +1,4 @@
-= link_to 'Editar', edit_article_path(@article), class: 'btn btn-primary'
+= link_to 'Editar', edit_admin_article_path(@article), class: 'btn btn-primary'
 h1 = @article.title
 p = @article.summary
 p = @article.category.try :name
