@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'slim-rails', '~> 2.0.1'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'uploadbox', '~> 0.0.4'
+gem 'devise', '~> 3.0.0'
 
 group :development do
   gem 'kickoff_rails', '~> 0.0.6'
