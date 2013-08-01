@@ -7,6 +7,8 @@ class Article < ActiveRecord::Base
     "#{id} #{title}".parameterize
   end
 
+  paginates_per 5
+
   uploads_one :picture, regular: [600,300], thumb: [200,200]
 
 end
