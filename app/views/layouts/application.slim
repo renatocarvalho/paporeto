@@ -1,34 +1,30 @@
 doctype html
-html
+/[if lt IE 7]
+  | <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang='#{I18n.locale}'>
+/[if IE 7]
+  | <html class="no-js lt-ie9 lt-ie8" lang='#{I18n.locale}'>
+/[if IE 8]
+  | <html class="no-js lt-ie9" lang='#{I18n.locale}'>
+/[if IE 9]
+  | <html class="no-js ie ie9" lang='#{I18n.locale}'>
+| <!--[if (gte IE 9)|!(IE)]<!-->
+html.no-js lang='#{I18n.locale}'
+  | <!--<![endif]-->
   head
-    title Paporeto
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    meta charset='utf-8'
+    meta http-equiv='X-UA-Compatible' content='IE=edge'
+    - if @title.present?
+      title = @title
+    - else
+      title PapoReto.com — Notícias direto ao ponto, sem enrolação!
+    meta name="description" content=""
+    meta name='author' content='Startaê — http://www.startae.com.br'
     = csrf_meta_tags
-  body
-
-    .navbar.navbar-inverse.navbar-static-top
-      .container
-        = link_to 'Paporeto', root_path, class: 'navbar-brand'
-        - if current_user
-          ul.nav.navbar-nav
-            li class="#{'active' if params[:controller] =~ /articles/}"
-              = link_to 'Artigos', admin_articles_path
-            li class="#{'active' if params[:controller] =~ /categories/}"
-              = link_to 'Categorias', admin_categories_path
-            li class="#{'active' if params[:controller] =~ /users/}"
-              = link_to 'Usuários', admin_users_path
-          ul.nav.navbar-nav.pull-right
-            li = link_to current_user.email, '#'
-            li = link_to 'Sair', destroy_user_session_path, method: :delete
-
-    .container
-      - if notice
-        .alert
-          button.close data-dismiss="alert" type="button" &times;
-          = notice
-      - if alert
-        .alert.alert-error
-          button.close data-dismiss="alert" type="button" &times;
-          = alert
-      = yield
+    = favicon_link_tag 'favicon.png', type: 'image/x-icon'
+    = stylesheet_link_tag 'application', media: 'all'
+  body class="#{{@page_class}}"
+    = render 'shared/header'
+    = yield
+    = render 'shared/footer'
+    = render 'shared/development' if Rails.env.development?
+    = javascript_include_tag 'application'
