@@ -13,6 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module Paporeto
   class Application < Rails::Application
+    config.assets.precompile += %w(admin.js admin.css)
     config.i18n.default_locale = 'pt-BR'
     config.time_zone = 'Brasilia'
     config.generators do |g|

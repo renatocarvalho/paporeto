@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title Paporeto
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+
+    .navbar.navbar-inverse.navbar-static-top
+      .container
+        = link_to 'Paporeto', root_path, class: 'navbar-brand'
+        - if current_user
+          ul.nav.navbar-nav
+            li class="#{'active' if params[:controller] =~ /articles/}"
+              = link_to 'Artigos', admin_articles_path
+            li class="#{'active' if params[:controller] =~ /categories/}"
+              = link_to 'Categorias', admin_categories_path
+            li class="#{'active' if params[:controller] =~ /users/}"
+              = link_to 'Usuários', admin_users_path
+          ul.nav.navbar-nav.pull-right
+            li = link_to current_user.email, '#'
+            li = link_to 'Sair', destroy_user_session_path, method: :delete
+
+    .container
+      - if notice
+        .alert
+          button.close data-dismiss="alert" type="button" &times;
+          = notice
+      - if alert
+        .alert.alert-error
+          button.close data-dismiss="alert" type="button" &times;
+          = alert
+      = yield
