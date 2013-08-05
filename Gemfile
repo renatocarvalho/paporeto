@@ -8,6 +8,9 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'slim-rails', '~> 2.0.1'
 
+# scheduler gem
+gem 'rufus-scheduler'
+
 # Form generator
 gem 'simple_form', '~> 3.0.0.rc'
 
