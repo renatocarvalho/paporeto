@@ -7,6 +7,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'slim-rails', '~> 2.0.1'
+gem 'turbolinks', '~> 1.3.0'
+
+gem 'bourbon', '~> 3.1.8'
+gem 'neat', '~> 1.3.0'
+gem 'high_voltage', '~> 1.2.3'
+gem 'normalize-rails', '~> 2.1.1'
 
 # scheduler gem
 gem 'rufus-scheduler'
