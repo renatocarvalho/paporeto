@@ -1,5 +1,5 @@
 - @page_class = "#{@article.category.slug} type-section"
-- @title = "#{@article.category}"
+- @title = "#{@article.category.name}"
 
 .container
   #main
@@ -19,10 +19,10 @@
   #sidebar
     section#more-articles
       section.category
-        h1 = @article.category
+        h1 = @article.category.name
         - @related.each do |article|
           article
             = link_to article do
-              h2 Skateboarding Aenean eu leo quam. Pellentesque ornare sem lacinia.
+              h2 = @article.title
 
     = render 'shared/send_news'
