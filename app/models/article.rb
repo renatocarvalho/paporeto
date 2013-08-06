@@ -9,6 +9,6 @@ class Article < ActiveRecord::Base
 
   paginates_per 5
 
-  uploads_one :picture, regular: [600,300], thumb: [200,200]
+  uploads_one :picture, regular: [600,300], thumb: [90,80], large: [940,380]
 
 end

@@ -11,5 +11,5 @@ Article.destroy_all
 # end
 
 100.times do |n|
-  Article.create!(title: Faker::Lorem.sentence, category: Category.all.sample, body: Faker::HipsterIpsum.paragraph)
+  Article.create!(title: Faker::Lorem.sentence, summary: Faker::Lorem.paragraph, category: Category.all.sample, body: Faker::HipsterIpsum.paragraph)
 end

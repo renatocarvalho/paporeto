@@ -1,0 +1,25 @@
+- @page_class = 'noticias type-section'
+- @title = 'Notícias'
+
+- if @featured
+  section#featured-article
+    article.noticias
+      - if @featured.picture
+        = image_tag @featured.picture.large, onload: "this.parentNode.style.backgroundImage = 'url('+this.src+')'"
+      .article-inner
+        = link_to '#' do
+          .category = @featured.category.name
+          h1 = @featured.title
+
+section.latest-articles
+  .latest-articles-inner
+    h1 Últimas notícias
+
+    - @articles.each do |article|
+      article
+        = link_to '#' do
+          = img article.picture.thumb if article.picture?
+          h2 = truncate(article.title, length: 100)
+          p = truncate(article.summary, length: 200)
+
+= render 'shared/send_news'

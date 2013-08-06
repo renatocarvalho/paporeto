@@ -1,7 +1,9 @@
 Paporeto::Application.routes.draw do
-  devise_for :users
+  root 'articles#index'
 
-  root 'admin/articles#index'
+  resources :articles, path: 'artigos', only: [:index, :show]
+
+  devise_for :users
 
   namespace :admin do
     resources :categories, path: 'categorias', path_names: {new: 'novo', edit: 'editar'}
