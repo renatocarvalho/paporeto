@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
 
   paginates_per 5
 
-  uploads_one :picture, regular: [600,300], thumb: [90,80], large: [940,380]
+  uploads_one :picture, regular: [580,300], thumb: [90,80], large: [940,380]
 
   default_scope -> { order(published_at: :desc) }
 
