@@ -1,5 +1,11 @@
 = link_to 'Editar', edit_admin_article_path(@article), class: 'btn btn-primary'
 h1 = @article.title
+p
+  b Em destaque:&nbsp;
+  - if @article.featured
+    b Sim
+  - else
+    b Não
 p = @article.summary
 p = @article.category.try :name
 hr

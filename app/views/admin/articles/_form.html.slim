@@ -6,6 +6,7 @@
     = f.association :category, prompt: 'Escolha uma categoria'
     = f.uploader :picture, preview: :regular
     = f.input :summary
+    = f.input :featured, inline_label: true, label: false
     = f.input :body, input_html: {class: 'input-xxlarge', rows: 10}
 
   .form-actions
