@@ -7,7 +7,7 @@
       - if @featured.picture
         = image_tag @featured.picture.large, onload: "this.parentNode.style.backgroundImage = 'url('+this.src+')'"
       .article-inner
-        = link_to '#' do
+        = link_to @featured do
           .category = @featured.category.name
           h1 = @featured.title
 
@@ -17,7 +17,7 @@ section.latest-articles
 
     - @articles.each do |article|
       article
-        = link_to '#' do
+        = link_to article do
           = img article.picture.thumb if article.picture?
           h2 = truncate(article.title, length: 100)
           p = truncate(article.summary, length: 200)

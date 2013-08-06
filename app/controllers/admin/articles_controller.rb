@@ -7,7 +7,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles.json
   def index
     # @articles = Article.all
-    @articles = Article.page(params[:page]).per(5)
+    @articles = Article.page(params[:page]).per(10)
   end
 
   # GET /articles/1
@@ -74,6 +74,6 @@ class Admin::ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :summary, :body, :category_id, :featured)
+      params.require(:article).permit(:title, :summary, :body, :category_id, :featured, :published_at)
     end
 end

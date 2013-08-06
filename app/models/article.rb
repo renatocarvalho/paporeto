@@ -11,4 +11,14 @@ class Article < ActiveRecord::Base
 
   uploads_one :picture, regular: [600,300], thumb: [90,80], large: [940,380]
 
+  default_scope -> { order(published_at: :desc) }
+
+  def self.published
+    where('published_at <= ?', Time.now)
+  end
+
+  def self.featured
+    where(featured: true).first
+  end
+
 end

@@ -2,6 +2,7 @@
   = f.error_notification
 
   .form-inputs
+    = f.input :published_at
     = f.input :title
     = f.association :category, prompt: 'Escolha uma categoria'
     = f.uploader :picture, preview: :regular

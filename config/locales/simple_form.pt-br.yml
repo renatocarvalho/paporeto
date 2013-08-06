@@ -16,6 +16,7 @@ pt-BR:
         password: Senha
         name: Nome
         featured: Em destaque
+        published_at: Data de publicação
       article:
         title: Título
         summary: Sumário
