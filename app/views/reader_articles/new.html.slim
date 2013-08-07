@@ -1,0 +1,27 @@
+- @page_class = 'type-clean'
+- @title = 'Envie uma notícia'
+
+section.suggest-news
+  .suggest-news-inner
+    header
+      h1 Tem uma notícia?
+      h2 Envie para gente
+
+    = simple_form_for(@reader_article, defaults: {label: false}) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :name
+        = f.input :email
+        = f.input :title
+        = f.input :body
+
+      .form-actions
+        = f.button :submit, 'Enviar'
+
+
+
+
+
+
+

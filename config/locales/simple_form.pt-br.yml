@@ -10,6 +10,7 @@ pt-BR:
       # html: "<abbr title="required">*</abbr>"
     error_notification:
       default_message: "Por favor, corrija os problemas abaixo:"
+
     # Labels and hints examples
     labels:
       defaults:
@@ -22,13 +23,18 @@ pt-BR:
         summary: Sumário
         body: Conteúdo
 
+    hints:
+      defaults:
+        password: 'Mínimo de 8 caracteres.'
 
-    # hints:
-    #   defaults:
-    #     password: 'Mínimo de 8 caracteres.'
     placeholders:
       defaults:
-        name: 'Nome'
+        name: 'Nome...'
+        email: 'Email...'
+        title: 'Título...'
+        body: 'Conteúdo...'
         password: '****'
       article:
         title: Digite um título
+      user_article:
+        body: 'Conteúdo...'

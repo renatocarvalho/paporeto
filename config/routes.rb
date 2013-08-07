@@ -1,4 +1,6 @@
 Paporeto::Application.routes.draw do
+  resources :reader_articles, only: [:new, :create, :show]
+
   root 'articles#index'
 
   resources :articles, path: 'artigos', only: [:index, :show]
