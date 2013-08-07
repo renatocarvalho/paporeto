@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     # @articles = Article.limit(8)
-    @featured = Article.featured
+    @featured = Article.featured.first
     @articles = Article.published.limit(8)
   end
 
