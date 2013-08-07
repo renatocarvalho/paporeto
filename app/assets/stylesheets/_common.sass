@@ -20,6 +20,31 @@ img, embed, object, video
 =debug
   background-color: rgba(red, .3)
 
+// COLORS
+@each $theme in $themes
+  body.#{nth($theme, 1)}
+    #page-header
+      &:before
+        background: #{nth($theme, 2)}
+      #page-nav
+        li.#{nth($theme, 1)} a
+          color: #{nth($theme, 2)}
+
+    article.entry h1
+      color: #{nth($theme, 2)}
+
+    &.category h1, .category
+      background-color: #{nth($theme, 2)}
+
+    a
+      color: #{nth($theme, 2)}
+      // &:hover
+      //   color: darken(#{nth($theme, 2)}, 10%)
+
+  nav#page-nav
+    li.#{nth($theme, 1)} a:hover
+      color: #{nth($theme, 2)}
+
 
 
 %container
@@ -27,35 +52,6 @@ img, embed, object, video
 
 .container
   @extend %container
-
-
-.noticias
-  article.entry h1
-    color: $noticias-color
-  &.category h1, .category
-    background-color: $noticias-color
-  a
-    color: $noticias-color
-    &:hover
-      color: darken($noticias-color, 10%)
-.esportes
-  article.entry h1
-    color: $esportes-color
-  &.category h1, .category
-    background-color: $esportes-color
-  a
-    color: $esportes-color
-    &:hover
-      color: darken($esportes-color, 10%)
-.entretenimento
-  article.entry h1
-    color: $entretenimento-color
-  &.category h1
-    background-color: $entretenimento-color
-  a
-    color: $entretenimento-color
-    &:hover
-      color: darken($entretenimento-color, 10%)
 
 
 %category-title
@@ -130,3 +126,41 @@ section.latest-articles
   img
     float: left
     margin-right: 15px
+
+fieldset
+  border: none
+  margin: 20px 0 0 0
+  padding: 0
+input, textarea
+  width: 100%
+  border: 2px solid #b2b2b2
+  border-radius: 2px
+  background-color: white
+  font-size: 17px
+  font-weight: $light
+  padding: 8px
+  &:focus
+    outline: none
+.form-group
+  padding-bottom: 10px
+
+button
+  @extend %normalise-button
+  background-color: #333
+  text-transform: uppercase
+  color: white
+  border-radius: 3px
+  font-size: 20px
+  font-weight: $bold
+  padding: 20px 40px !important
+
+%normalise-button
+  margin: 0
+  padding: 0
+  outline: 0
+  border: none
+  text-decoration: none
+  text-align: center
+  cursor: pointer
+  vertical-align: middle
+  display: inline-block
