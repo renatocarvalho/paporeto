@@ -22,7 +22,7 @@
         h1 = @article.category.name
         - @related.each do |article|
           article
-            = link_to article do
+            = link_to [article.category, article] do
               h2 = article.title
 
     = render 'shared/send_news'

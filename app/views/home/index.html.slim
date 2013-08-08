@@ -1,0 +1,30 @@
+- @page_class= 'home'
+
+section#featured-article
+  article.esportes
+    = image_tag 'temp/featured-home.jpg', onload: "this.parentNode.style.backgroundImage = 'url('+this.src+')'"
+    .article-inner
+      = link_to '#' do
+        .category Esportes
+        h1 Lyoto Machida garante que está preparado para UFC Rio
+
+section#more-articles
+  - @categories.each do |category|
+    section.category class="#{category.slug}"
+      = link_to '#' do
+        h1 = category.name
+
+      - if category.featured_article
+        article.featured
+          = link_to [category, category.featured_article] do
+            - if category.featured_article.picture?
+              = img category.featured_article.picture.small
+            h2 = category.featured_article.title
+
+      - category.common_articles.limit(2).each do |article|
+        article
+          = link_to [category, article] do
+            = img article.picture.thumb if article.picture?
+            h2 = article.title
+
+= render 'shared/send_news'

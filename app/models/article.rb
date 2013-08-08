@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
 
   paginates_per 5
 
-  uploads_one :picture, regular: [580,300], thumb: [90,80], large: [940,380]
+  uploads_one :picture, thumb: [90,80], small: [260, 196], regular: [580,300], large: [940,380]
 
   default_scope -> { order(published_at: :desc) }
 
@@ -18,7 +18,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.featured
-    where(featured: true).first
+    where(featured: true)
   end
 
 end
