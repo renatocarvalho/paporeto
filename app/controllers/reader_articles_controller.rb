@@ -12,6 +12,8 @@ class ReaderArticlesController < ApplicationController
     @reader_article = ReaderArticle.new(reader_article_params)
 
       if @reader_article.save
+        Notifications.reader_sent_article(@reader_article).deliver
+
         redirect_to @reader_article, notice: 'Sua sugestão de artigo foi enviada com sucesso. Obrigado!'
       else
         render action: 'new'
